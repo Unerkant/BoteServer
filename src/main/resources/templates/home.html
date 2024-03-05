@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Nome Bote Server</title>
+    <title data-th-text="${@environment.getProperty('info.groupid')}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link data-th-href="@{/css/style.css}" rel="stylesheet">
+    <link href="/img/horn.png" rel="icon" sizes="32x32" type="image/png">
 </head>
 <body>
 
-    <h1 align="center">Bote Server</h1>
+<div class="homeContainer">
+
+    <!-- Header -->
+    <header class="homeHeader">
+        <table class="homeTable">
+            <tr>
+                <td class="homeTdLinks">
+                    &#160;&#160;
+                    <a data-th-href="@{/home}">
+                        <img src="/img/horn.png" width="36" height="36">
+                    </a>
+                </td>
+                <td class="homeTdMitte">
+                    <h3 data-th-text="${@environment.getProperty('info.name')}"></h3>
+                </td>
+                <td class="homeTdRechts">
+                    <span>4.3.2024 20:25</span>
+                    &#160;&#160;
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    <!-- Freie Zone, hier wird aller susgegeben -->
+
+    <article class="homeArticle">
+        <em>hier wird alle ausgegeben</em>
+    </article>
+
+  <!--  <aside class="homeAside">
+        <span>seiten ausgabe</span>
+    </aside>-->
+
+    <!-- Ende frei Zone -->
+
+    <div class="homeFooterPlatzhalter">&#160;</div><!-- Platzhalter für den Footer -->
+</div><!-- ende homeContainer -->
+
+    <!-- Footer, unter dem Haupt div -->
+    <footer class="homeFooter">
+        <div data-th-insert="~{/fragments/footer :: version}"></div>
+    </footer>
+
 </body>
 </html>

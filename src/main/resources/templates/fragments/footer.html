@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<body>
+
+<table class="footerTable" data-th-fragment="version">
+    <tr>
+        <td class="footerAside">
+            <div>&#160;&#160;Version: <small data-th-text="${@environment.getProperty('info.version')}"></small></div>
+        </td>
+        <td>
+            <div class="footerArticle">
+                <span>From Bote</span>
+            </div>
+        </td>
+        <td class="footerAside">
+            <small>&#160;&#160;&#169; Paul Richter</small>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+/*
+ *  Den 04.03.2024
+ *  CSS-layout Paul Richter
+ */
+
+*			    { margin:0;  padding:0; }
+html, body 	    { height:100%; }
+@charset "UTF-8";
+
+    /* <!-- Allgemein --> */
+
+/*
+ *  Grün(uhr)       #00F700
+ */
+.flexBetween
+{
+    /* noch nicht benutzt */
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+    /* home.html
+     _____________*/
+.homeContainer
+{
+   min-height: 100%;
+}
+.homeHeader
+{
+    background-color: #FAFAFA;
+    border-bottom: solid 1px #EAEAEA;
+}
+.homeTable
+{
+    width: 100%;
+    height: 3.0em;          /* 48px */
+}
+.homeTdLinks
+{
+    width: 7.5em;   /* 120px */
+}
+.homeTdMitte
+{
+    text-align: center;
+}
+.homeTdRechts
+{
+    width: 7.5em;   /* 120px */
+    text-align: right;
+    color: #0066FF;
+}
+
+.homeArticle{}
+.homeAside{}
+
+.homeFooterPlatzhalter
+{
+    min-height: 3.0em;
+}
+.homeFooter
+{
+    background: #FAFAFA;
+    border-top: solid 1px #EAEAEA;
+    height: 2.5em;                  /* 40px */
+    margin-top: -2.5em;
+    vertical-align: baseline;
+}
+
+
+    /* fragments/footer
+    ______________*/
+.footerTable
+{
+    height: 2.4em;
+    width: 100%;
+}
+.footerArticle
+{
+    text-align: center;
+    color: #E6E6E6;
+}
+.footerAside
+{
+    width: 6.25em;
+    color: #808080;
+}
