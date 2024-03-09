@@ -17,7 +17,7 @@ public class HomeController {
     private RuntimeService runtimeService;
 
 
-    @GetMapping(value = {"/", "/home"})
+    @GetMapping(value = "/home")
     public String home(Model model) {
 
         // Server laufzeit in footer anzeigen

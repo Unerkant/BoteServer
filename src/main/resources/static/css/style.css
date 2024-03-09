@@ -12,12 +12,24 @@ html, body 	    { height:100%; }
 /*
  *  Grün(uhr)       #00F700
  */
+.noScript
+{
+    color: red;
+    text-align: center;
+    padding: 0.8em;
+    border: solid 1px #808080;
+
+}
 .flexBetween
 {
     /* noch nicht benutzt */
     display: flex;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+.leer30
+{
+    height: 2.0em;
 }
 
     /* home.html
@@ -84,4 +96,10 @@ html, body 	    { height:100%; }
 {
     width: 6.25em;
     color: #808080;
+}
+
+    /* message.html
+    ----------------*/
+.messageBox
+{
 }
