@@ -1,4 +1,4 @@
-package BoteServer.controller.configuration;
+package BoteServer.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -15,15 +15,16 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry config){
-        config.enableSimpleBroker("/messages");
-        config.setApplicationDestinationPrefixes("/app");
+    public void registerStompEndpoints(StompEndpointRegistry registry){
+        registry.addEndpoint("/register").setAllowedOriginPatterns("*").withSockJS();
+        //System.out.println("Stomp EndPoit Registry Zeile: 26  / " + registry);
     }
 
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry){
-        registry.addEndpoint("/register").setAllowedOriginPatterns("*").withSockJS();
-
+    public void configureMessageBroker(MessageBrokerRegistry config){
+        config.enableSimpleBroker("/messages");
+        config.setApplicationDestinationPrefixes("/app");
+        //System.out.println("Web Socket Broker Zeile: 18  / " + config);
     }
 
 }
