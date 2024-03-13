@@ -25,7 +25,7 @@
                     <h3 data-th-text="${@environment.getProperty('info.name')}"></h3>
                 </td>
                 <td class="homeTdRechts">
-                    <span>4.3.2024 20:25</span>
+                    <span data-th-text="${datum}"></span>
                     &#160;&#160;
                 </td>
             </tr>
@@ -37,10 +37,6 @@
     <article class="homeArticle">
         <em>hier wird alle ausgegeben</em>
         <h3 data-th-text="${@environment.getProperty('info.serverDatum')}"></h3>
-        <br>
-        <br>
-        <br>
-        &#160;&#160;<a data-th-href="@{/message}">zum Message Client</a>
     </article>
 
   <!--  <aside class="homeAside">

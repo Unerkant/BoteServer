@@ -1,10 +1,15 @@
 package BoteServer.controller;
 
+import BoteServer.model.Message;
 import BoteServer.service.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Date;
 
 /**
  * Den 3.3.24
@@ -14,6 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
+    @Autowired
     private RuntimeService runtimeService;
 
 
@@ -22,9 +29,22 @@ public class HomeController {
 
         // Server laufzeit in footer anzeigen
         model.addAttribute("zeitstempel", runtimeService.getRuntimeSinceStart());
+        model.addAttribute("datum", new Date());
 
         return "home";
     }
 
+
+    /**
+     * nimmt entgegen die message von BoteWebClient an und leitet an alle weiter
+     *
+     * @param message
+     * @throws Exception
+     */
+    @MessageMapping("/messages")
+    public void messageReceiving(Message message) throws Exception {
+        simpMessagingTemplate.convertAndSend("/messages/receive/", message);
+        System.out.println("Message: " + message);
+    }
 
 }

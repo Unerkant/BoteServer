@@ -17,14 +17,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry){
         registry.addEndpoint("/register").setAllowedOriginPatterns("*").withSockJS();
-        //System.out.println("Stomp EndPoit Registry Zeile: 26  / " + registry);
+        System.out.println("Stomp EndPoit Registry Zeile: 26  / " + registry);
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config){
         config.enableSimpleBroker("/messages");
         config.setApplicationDestinationPrefixes("/app");
-        //System.out.println("Web Socket Broker Zeile: 18  / " + config);
+        System.out.println("Web Socket Broker Zeile: 18  / " + config);
     }
 
 }
