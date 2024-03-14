@@ -1,5 +1,6 @@
 package BoteServer.controller;
 
+import BoteServer.configuration.WebSocketEventListener;
 import BoteServer.model.Message;
 import BoteServer.service.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.Date;
  */
 
 @Controller
-public class HomeController {
+public class HomeController extends WebSocketEventListener {
 
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
@@ -29,7 +30,9 @@ public class HomeController {
 
         // Server laufzeit in footer anzeigen
         model.addAttribute("zeitstempel", runtimeService.getRuntimeSinceStart());
-        model.addAttribute("datum", new Date());
+        model.addAttribute("datum", clientCount == 0 ? "" : "Online: " + clientCount);
+
+        System.out.println("Home Controller/@GetMapping");
 
         return "home";
     }
@@ -44,7 +47,8 @@ public class HomeController {
     @MessageMapping("/messages")
     public void messageReceiving(Message message) throws Exception {
         simpMessagingTemplate.convertAndSend("/messages/receive/", message);
-        System.out.println("Message: " + message);
+
+        System.out.println("Home Controller/@MessageMapping, message weiter an alle gesendet: " + message);
     }
 
 }
