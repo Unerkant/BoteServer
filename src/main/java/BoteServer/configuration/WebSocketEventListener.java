@@ -13,6 +13,14 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 public class WebSocketEventListener {
 
     public Integer clientCount = 0;
+    public Integer getClientCount() {
+        return clientCount;
+    }
+    public void setClientCount(Integer clientCount) {
+        this.clientCount = clientCount;
+    }
+
+
 
     @EventListener
     private void handleSessionConnected(SessionConnectEvent event) {
@@ -30,13 +38,13 @@ public class WebSocketEventListener {
     private void clientPlus(Integer plus) {
 
         clientCount = plus + 1;
-
+        setClientCount(clientCount);
     }
 
     private void clientMinus(Integer minus) {
 
         clientCount = minus - 1;
-
+        setClientCount(clientCount);
     }
 
 

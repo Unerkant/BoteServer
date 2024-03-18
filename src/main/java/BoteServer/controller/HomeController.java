@@ -4,25 +4,33 @@ import BoteServer.configuration.WebSocketEventListener;
 import BoteServer.model.Message;
 import BoteServer.service.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.thymeleaf.engine.ElementModelStructureHandler;
+import org.xml.sax.Locator;
 
-import java.util.Date;
+import javax.lang.model.element.Element;
+
 
 /**
  * Den 3.3.24
  */
 
 @Controller
-public class HomeController extends WebSocketEventListener {
+public class HomeController {
 
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
     @Autowired
     private RuntimeService runtimeService;
+    @Autowired
+    private WebSocketEventListener eventListener;
 
 
     @GetMapping(value = {"/", "/home"})
@@ -30,9 +38,9 @@ public class HomeController extends WebSocketEventListener {
 
         // Server laufzeit in footer anzeigen
         model.addAttribute("zeitstempel", runtimeService.getRuntimeSinceStart());
-        model.addAttribute("datum", clientCount == 0 ? "" : "Online: " + clientCount);
+        model.addAttribute("online", "Online: " + eventListener.getClientCount());
 
-        System.out.println("Home Controller/@GetMapping");
+        //System.out.println("Home Controller/@GetMapping: ");
 
         return "home";
     }
@@ -48,7 +56,6 @@ public class HomeController extends WebSocketEventListener {
     public void messageReceiving(Message message) throws Exception {
         simpMessagingTemplate.convertAndSend("/messages/receive/", message);
 
-        System.out.println("Home Controller/@MessageMapping, message weiter an alle gesendet: " + message);
+        //System.out.println("Home Controller/@MessageMapping, message weiter an alle gesendet: " + message);
     }
-
 }
