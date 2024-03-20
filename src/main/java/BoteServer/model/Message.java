@@ -1,6 +1,5 @@
 package BoteServer.model;
 
-import org.springframework.stereotype.Service;
 
 /**
  * Den 7.3.2024
@@ -10,14 +9,17 @@ public class Message {
 
     private String name;
     private String text;
+    private String recipient;
+
 
     public Message(){
         // ...
     }
 
-    public Message(String name, String text){
+    public Message(String name, String text, String recipient){
         this.name = name;
         this.text = text;
+        this.recipient = recipient;
     }
 
     public String getName() {
@@ -36,8 +38,16 @@ public class Message {
         this.text = text;
     }
 
+    public String getRecipient() { return recipient; }
+    public void setRecipient(String recipient) { this.recipient = recipient; }
+
     @Override
     public String toString(){
-        return "Message{" + "name=" + name + ", text " + text + "}";
+
+        return "Message{" +
+                " name = " + name +
+                ", text = " + text +
+                ", recipient = " + recipient +
+                "}";
     };
 }
