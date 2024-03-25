@@ -47,10 +47,9 @@ public class HomeController {
      */
     @MessageMapping("/messages")
     public void messageReceiving(Message message) throws Exception {
-        simpMessagingTemplate.convertAndSend("/messages/receive/", message);
 
-        simpMessagingTemplate.convertAndSend("/messages/receive/" + message.getRecipient(), message);
+        simpMessagingTemplate.convertAndSend("/messages/receive/" + message.getName(), message);
 
-        //System.out.println("@MessageMapping: " + message);
+        //System.out.println("@MessageMapping: " + message.getName());
     }
 }
