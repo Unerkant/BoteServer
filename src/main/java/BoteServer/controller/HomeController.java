@@ -29,27 +29,19 @@ public class HomeController {
     @GetMapping(value = {"/", "/home"})
     public String home(Model model) {
 
-        // Server laufzeit in footer anzeigen
+        // Server laufzeit in footer(fragment) anzeigen
         model.addAttribute("zeitstempel", runtimeService.getRuntimeSinceStart());
         model.addAttribute("online", "Online: " + eventListener.getClientCount());
-
-        //System.out.println("Home Controller/@GetMapping: ");
 
         return "home";
     }
 
 
-    /**
-     * nimmt entgegen die message von BoteWebClient an und leitet an alle weiter
-     *
-     * @param message
-     * @throws Exception
-     */
+
     @MessageMapping("/messages")
-    public void messageReceiving(Message message) throws Exception {
+    public void messageReceiving(Message message) {
 
-        simpMessagingTemplate.convertAndSend("/messages/receive/" + message.getName(), message);
+        simpMessagingTemplate.convertAndSend("/messages/receive/" + message.getRecipient(), message);
 
-        //System.out.println("@MessageMapping: " + message.getName());
     }
 }
