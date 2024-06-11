@@ -4,8 +4,10 @@
     <title data-th-text="${@environment.getProperty('info.groupid')}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link data-th-href="@{/css/style.css}" rel="stylesheet">
-    <link data-th-href="@{/img/horn.png}" rel="icon" sizes="32x32" type="image/png">
+    <link rel="stylesheet" data-th-href="@{/css/style.css}">
+    <link rel="icon" type="image/x-icon" data-th-href="@{/img/favicon.ico}">
+
+    <!-- <link data-th-href="@{/img/horn.png}" rel="icon" sizes="50x50" type="image/png"> -->
 </head>
 <body>
 
@@ -15,10 +17,10 @@
     <header class="homeHeader">
         <table class="homeTable">
             <tr>
-                <td class="homeTdLinks">
+                <td class="homeTdLinks" valign="middle">
                     &#160;&#160;
                     <a data-th-href="@{/home}">
-                        <img data-th-src="@{/img/horn.png}" width="36" height="36">
+                       <img data-th-src="@{/img/hiob.svg}" width="48" height="48">
                     </a>
                 </td>
                 <td class="homeTdMitte">
@@ -49,7 +51,7 @@
 
     <!-- Footer, unter dem Haupt div -->
     <footer class="homeFooter">
-        <div data-th-insert="~{/fragments/footer :: version}"></div>
+        <div data-th-insert="~{fragments/footer :: version}"></div>
     </footer>
 
 </body>
