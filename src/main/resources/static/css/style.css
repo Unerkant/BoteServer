@@ -5,6 +5,7 @@
 
 *			    { margin: 0;  padding: 0; }
 html, body 	    { height: 100%; width: 100%; }
+a               { text-decoration: none;}
 @charset "UTF-8";
 
     /* <!-- Allgemein angaben --> */
@@ -20,26 +21,28 @@ html, body 	    { height: 100%; width: 100%; }
 .leer4              { height: 4.0em; border: 1px solid transparent; }
 .leer5              { height: 5.0em; border: 1px solid transparent; }
 .leer7              { height: 7.0em; border: 1px solid transparent; }
+.footerPlatzhalter  { height: 12.0em; border: 1px solid transparent; }
 .marginNull         { margin: 0; padding: 0; }
 
     /* richtung grau*/
-.Platinum           { color: #E8E9E9; } /* hell grau */
-.LightGray          { color: #D1D3D4; }
-.Gray               { color: #BABDBF; }
-.OldSilver          { color: #808488; }
-.DimGray            { color: #666A6D; } /* dunkel Grau */
+.Platinum           { color: #E8E9E9; } /* hell grau 91% */
+.LightGray          { color: #D1D3D4; } /* grau, 83% */
+.SlateGray          { color: #BABDBF; } /* grau, 74%*/
+.OldSilver          { color: #808488; } /* grau, 52%*/
+.Gray               { color: #999999; } /* grau, 60%*/
+.DimGray            { color: #666A6D; } /* dunkel Grau, 41% */
 
     /* richtung blau */
 .ice                { color: #E1EFF8; }
 .royal              { color: #4169E1; } /* violett Blau */
-.blau               { color: #1608D3; }
+.blue               { color: #1608D3; }
 .twilight           { color: #203763; } /* dunkel Blau */
 .bluetack           { color: #82BFE0; } /* blass Blau */
 .powderblue         { color: #B5D0E0; } /* grau Blau */
 .microsoft          { color: #00A2ED; }
 
-.Rot                { color: #CC2900; }
-.Grun               { color: #00F700; } /* Grün(Uhr) */
+.fire               { color: #CC2900; }
+.lime               { color: #00F700; } /* Grün(Uhr) */
 
 
 .flexBetween
@@ -50,73 +53,95 @@ html, body 	    { height: 100%; width: 100%; }
     justify-content: space-between;
 }
 
-    /* home.html
+
+    /* resources/home.html
      _____________*/
-.homeContainer
-{
-   min-height: 100%;
-}
-.homeHeader
-{
-    background-color: #FAFAFA;
-    border-bottom: solid 1px #EAEAEA;
-}
-.homeTable
-{
-    width: 100%;
-    height: 3.0em;          /* 48px */
-}
-.homeTdLinks
-{
-    width: 7.5em;   /* 120px */
-}
-.homeTdMitte
-{
-    text-align: center;
-}
-.homeTdRechts
-{
-    width: 7.5em;   /* 120px */
-    text-align: right;
-    color: #0066FF;
-}
-
-.homeArticle
-{
-    padding: 10px;
-}
-.homeAside{}
-
-.homeFooter
-{
-    background: #FAFAFA;
-    border-top: solid 1px #EAEAEA;
-    height: 2.5em;                  /* 40px */
-    margin-top: -2.5em;
-    vertical-align: baseline;
-}
+.homeContainer      { min-height: 100%; }
+.homeArticle        { padding: 10px; }
+.homeAside          {} /* zurzeit nicht benutzt */
 
 
-    /* fragments/footer
+
+    /* resources/admin.html
+    -----------------*/
+
+.adminContainer     { min-height: 100%; }
+.adminArticle       { padding: 10px;}
+.adminAside         {}
+/*.AdminLogin         { display: none; background-color: #FAFAFA; border: 1px solid #999; border-radius: 6px;
+                      font-size: 1.1em; padding: 6px 16px;
+                    }
+.AdminLogin:hover   { display: block; background-color: #DEDEDE; border: 1px solid #505050;
+                        box-shadow: rgba(0, 0, 0, .1) 0 1px 1px; color: #202124;
+                    }
+.AdminFooter        {
+                    }*/
+
+    /* fragments/adminheader.html
+     .............................*/
+.adminHeader         { position: sticky; top: 0px; background-color: #FAFAFA; border-bottom: solid 1px #EAEAEA; }
+.adminHeaderTable    { width: 100%; height: 3.0em; /* 48px */ }
+.adminHeaderTdWidth  { width: 6.25em;   /* 100px */}
+.adminHeaderTdCenter { text-align: center; }
+.adminHeaderHref     { border: 1px solid #EAEAEA; padding: 8px 15px; border-radius: 6px; }
+.adminHeaderHref:hover     { background-color: #EAEAEA; }
+
+    /* fragments/userheader.html
+    ------------------------------*/
+.userHeader         { position: sticky; top: 0px; background-color: #FAFAFA; border-bottom: solid 1px #EAEAEA; }
+.userHeaderTable    { width: 100%; height: 3.0em; /* 48px */ }
+.userHeaderTdWidth  { width: 6.25em;   /* 100px */}
+.userHeaderTdCenter { text-align: center; }
+
+    /* fragments/adminfooter.html
     ______________*/
-.fragmentFooterTable
-{
-    height: 2.4em;
-    width: 100%;
-}
-.fragmentFooterCenter
-{
-    text-align: center;
-    color: #808080;
-}
-.fragmentFooterLeft
-{
-    width: 6.25em;
-    color: #808080;
-}
+.fragmentAdminFooterBox     {background: #FAFAFA; border-top: solid 1px #EAEAEA; min-height: 2.5em;/* 40px */
+                             margin-top: -2.5em; vertical-align: baseline;}
+.fragmentAdminFooterTable   { height: 2.4em; width: 100%; }
+.fragmentAdminFooterCenter  { text-align: center; color: #808080; }
+.fragmentAdminFooterLeft    { width: 9.0em; color: #808080; }
+.fragmentAdminFooterRight   { width: 9.0em; color: #808080; text-align: right; }
+
+
+    /* fragment/userfooter.html
+    -----------------------*/
+.fragmentUserFooterBox      { background: #FAFAFA; border-top: solid 1px #EAEAEA; min-height: 11.5em; margin-top: -11.5em; }
+.fragmentUserFooter         { display: flex; flex-wrap: wrap;}
+.userFooterText             { border-left: 3px solid #1608D3; padding-left: 10px;}
+.fragmentUserFooter div     { flex-grow: 1;}
+.fragmentUserFooter div h4  { margin-bottom: 10px;}
+.fragmentUserFooter div a   { display: block; padding: 5px 0;}
+.fragmentUserFooterCopy         { border-top: 1px solid #F2F2F2; }
+.fragmentUserFooterCopy table   { width: 100%; }
+
 
     /* message.html
     ----------------*/
-.messageBox
-{
+.messageBox         { }
+
+
+    /* :::::::::::::::::::::::::: @MEDIA BEISPIELE :::::::::::::::::::::::::: */
+
+    /* @Media für Bilder, nur Beispiel */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+#only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+      .icon-twitter {
+        background-image: url(../img/twitter_2x.png);
+        background-size: 21px 17px;
+      }
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 2.5),
+            only screen and (-o-min-device-pixel-ratio: 3/2),
+            only screen and (min--moz-device-pixel-ratio: 2.5),
+            only screen and (min-device-pixel-ratio: 2.5) {
+                .logo {
+                    background-image: url(/img/blog/logo3x.png);
+                    background-size: 146px 20px;
+                  }
+}
+
+@media (max-width: 1000px) {}
+@media (max-width: 640px) {}
+@media (max-width: 480px) {}

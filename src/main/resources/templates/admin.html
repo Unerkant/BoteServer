@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<head th:insert="~{/fragments/globalhead :: global_head}"></head>
+
+<body>
+
+<div class="adminContainer">
+
+    <!-- Header -->
+    <header th:insert="~{/fragments/adminheader :: admin_header}"></header>
+
+    <!-- Freie Zone, hier wird aller susgegeben -->
+
+    <article class="adminArticle">
+        <small>Das ist der Admin-Bereich, nur für berechtigte Personen zugelassen</small>
+    </article>
+
+  <!--  <aside class="adminAside">
+        <span>seiten ausgabe</span>
+    </aside>-->
+
+    <!-- Ende frei Zone -->
+
+    <div class="leer3">&#160;</div><!-- Platzhalter für den Footer -->
+</div><!-- ende homeContainer -->
+
+    <!-- Footer, unter dem Haupt div -->
+    <footer th:insert="~{/fragments/adminfooter :: admin_footer}"></footer>
+
+</body>
+</html>

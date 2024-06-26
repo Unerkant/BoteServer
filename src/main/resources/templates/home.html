@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
-<head>
-    <title data-th-text="${@environment.getProperty('info.groupid')}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" data-th-href="@{/css/style.css}">
-    <link rel="icon" type="image/x-icon" data-th-href="@{/img/favicon.ico}">
 
-    <!-- <link data-th-href="@{/img/horn.png}" rel="icon" sizes="50x50" type="image/png"> -->
-</head>
+    <head data-th-insert="~{/fragments/globalhead :: global_head}"></head>
+
 <body>
 
 <div class="homeContainer">
 
     <!-- Header -->
-    <header class="homeHeader">
-        <table class="homeTable">
-            <tr>
-                <td class="homeTdLinks" valign="middle">
-                    &#160;&#160;
-                    <a data-th-href="@{/home}">
-                       <img data-th-src="@{/img/hiob.svg}" width="48" height="48">
-                    </a>
-                </td>
-                <td class="homeTdMitte">
-                    <h3 data-th-text="${@environment.getProperty('info.name')}"></h3>
-                </td>
-                <td class="homeTdRechts">
-                    <span data-th-text="${online}"></span>
-                    &#160;&#160;
-                </td>
-            </tr>
-        </table>
-    </header>
+    <header data-th-insert="~{/fragments/userheader :: user_header}"></header>
 
     <!-- Freie Zone, hier wird aller susgegeben -->
 
     <article class="homeArticle">
-        <small>hier wird alles ausgegeben</small>
+
+        <div style="padding: 50px; color: red; border: 1px solid #F2F2F2; border-radius: 6px;">
+            <h3 align="center">nur für Versuch zwecke angelegt!!!</h3>
+        </div>
+        <br><br>
+
+        <!--
+            * ACHTUNG: statt switch könnte varscheilich den if von thymeleaf benutzen
+            * z.b.s <div data-th-insert="~{/fragments/boxmenu :: ${path} }"></div>
+            * nicht getested
+        -->
+
+        <th:block th:switch="${path}">
+            <div th:case="'faq'">
+                <h3 align="center" class="fire">FAQ Fragment Includen</h3>
+                <p align="center">Diese FAQ bietet Antworten auf grundlegende Fragen zu Telegram.
+                    Weitere technische Informationen finden Sie in unseren erweiterten FAQ.</p>
+            </div>
+            <div th:case="'privatsphere'">
+                <h3 align="center" class="fire">Privatsphäre Fragment INCLUDEN</h3>
+            </div>
+            <div th:case="*">
+                <h3 align="center" class="fire">Home Seite INCLUDEN</h3>
+            </div>
+        </th:block>
+
     </article>
 
-  <!--  <aside class="homeAside">
+    <!--  <aside class="homeAside">
         <span>seiten ausgabe</span>
     </aside>-->
 
     <!-- Ende frei Zone -->
 
-    <div class="leer3">&#160;</div><!-- Platzhalter für den Footer -->
+
+    <!-- Footer Platz Halter -->
+    <div class="footerPlatzhalter">&#160;</div>
+
 </div><!-- ende homeContainer -->
 
-    <!-- Footer, unter dem Haupt div -->
-    <footer class="homeFooter">
-        <div data-th-insert="~{fragments/footer :: version}"></div>
-    </footer>
+<!-- Footer -->
+<footer data-th-insert="~{/fragments/userfooter :: user_footer}"></footer>
+
 
 </body>
 </html>

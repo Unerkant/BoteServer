@@ -42,12 +42,11 @@ public class Message {
     public void setRecipient(String recipient) { this.recipient = recipient; }
 
     @Override
-    public String toString(){
-
+    public String toString() {
         return "Message{" +
-                " name = " + name +
-                ", text = " + text +
-                ", recipient = " + recipient +
-                "}";
-    };
+                "name='" + name + '\'' +
+                ", text='" + text + '\'' +
+                ", recipient='" + recipient + '\'' +
+                '}';
+    }
 }

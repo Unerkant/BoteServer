@@ -5,31 +5,26 @@ import BoteServer.service.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Den 3.3.24
+ * Den 20.06.2024
  */
 
 @Controller
-public class HomeController {
+public class AdminController {
 
     @Autowired
     private RuntimeService runtimeService;
     @Autowired
     private WebSocketEventListener eventListener;
 
+    @GetMapping(value = "/admin")
+    public String admin(Model model){
 
-    @GetMapping(value = {"/", "/home", "/home/{path}"})
-    public String home(Model model, @RequestParam(required = false) String path) {
-
-        // Server laufzeit in footer(fragment) anzeigen
         model.addAttribute("zeitstempel", runtimeService.getRuntimeSinceStart());
-        // path an home senden
-        model.addAttribute("path", path);
+        model.addAttribute("online", "Online: " + eventListener.getClientCount());
 
-        return "/home";
+        return "/admin";
     }
-
 }

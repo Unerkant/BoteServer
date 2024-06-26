@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>BoteServer</groupId>
 	<artifactId>BoteServer</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>BoteServer</name>
 	<description>Bote project for Spring Boot</description>
 
@@ -47,12 +47,54 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-messaging</artifactId>
-			<version>6.1.8</version>
+			<version>6.1.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-websocket</artifactId>
-			<version>6.1.8</version>
+			<version>6.1.9</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<!-- spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>6.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>6.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>6.3.0</version>
+		</dependency>
+
+
+		<!-- MySql (phpMYAdmin) von MAMP -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<!-- für @Entity: import jakarta.persistence.Entity; -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>3.3.0</version>
 		</dependency>
 
 	</dependencies>
