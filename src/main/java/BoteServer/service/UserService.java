@@ -8,9 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 /**
  * Den 18.06.2024
  */
@@ -24,9 +21,12 @@ public class UserService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
+        System.out.println("Name: " + usernameOrEmail);
+
         User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User Name oder Email existiert nicht"));
 
+        System.out.println("Datenbank: " + user);
         return new MyUserDetails(user);
     }
 

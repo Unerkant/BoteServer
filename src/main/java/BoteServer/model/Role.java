@@ -3,12 +3,14 @@ package BoteServer.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * Den 16.06.2024
  */
 
 @Entity
+@Table(name = "roles")
 public class Role {
 
     @Id
