@@ -21,12 +21,9 @@ public class UserService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
-        System.out.println("Name: " + usernameOrEmail);
-
         User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User Name oder Email existiert nicht"));
 
-        System.out.println("Datenbank: " + user);
         return new MyUserDetails(user);
     }
 
